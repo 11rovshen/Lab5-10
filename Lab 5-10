@@ -1,0 +1,4 @@
+B = [3, 5, 9, 1.2, 4.67]
+n = len(B)
+for i in range(n):
+    print(B[i])
