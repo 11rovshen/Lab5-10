@@ -1,0 +1,17 @@
+# Massivin ölçülərini daxil edirik
+n = int(input("Sətir sayı (n): "))
+m = int(input("Sütun sayı (m): "))
+
+# Massivi daxil edirik
+A = []
+for i in range(n):
+    satir = list(map(int, input(f"{i+1}-ci sətrin elementlərini daxil et (boşluqla): ").split()))
+    A.append(satir)
+
+# Cəmi hesablayırıq
+cem = 0
+for i in range(n):
+    for j in range(m):
+        cem += A[i][j]
+
+print("Bütün elementlərin cəmi:", cem)
