@@ -1,0 +1,31 @@
+import math
+
+# f(x) funksiyası
+def f(x):
+    return x * math.atan(x) - 1
+
+# f'(x) - törəmə
+def df(x):
+    return math.atan(x) + (x / (1 + x**2))
+
+# Newton üsulu
+def newton_method(x0, tol=1e-6, max_iter=100):
+    for i in range(max_iter):
+        fx = f(x0)
+        dfx = df(x0)
+        if dfx == 0:
+            print("Törəmə sıfır oldu! Dayandırıldı.")
+            return None
+        x1 = x0 - fx / dfx
+        print(f"{i+1}-ci iterasiya: x = {x1}")
+        if abs(x1 - x0) < tol:
+            return x1  # Təqribi kök tapıldı
+        x0 = x1
+    return x0  # Maksimum iterasiya ilə nəticə
+
+# Başlanğıc təxmini nöqtə
+x0 = 1.2
+
+kok = newton_method(x0)
+if kok is not None:
+    print(f"\nTəqribi kök: {kok}")
