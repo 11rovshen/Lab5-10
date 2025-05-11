@@ -1,0 +1,24 @@
+# 1. Ədədi massiv yaradılır
+ededler = [12, 7, 5, 20, 33, 40, 8, 15]
+
+# 2. Bu massiv fayla yazılır
+with open("ededler.txt", "w") as fayl:
+    for eded in ededler:
+        fayl.write(str(eded) + "\n")
+
+# 3. Fayldan ədədlər oxunur və cüt ədədlər seçilir
+cut_ededler = []
+with open("ededler.txt", "r") as fayl:
+    for setir in fayl:
+        eded = int(setir.strip())
+        if eded % 2 == 0:
+            cut_ededler.append(eded)
+
+# 4. Cüt ədədlər yeni fayla yazılır
+with open("cut_ededler.txt", "w") as yeni_fayl:
+    for eded in cut_ededler:
+        yeni_fayl.write(str(eded) + "\n")
+
+# 5. Cüt ədədlərin cəmi hesablanır və ekrana çap edilir
+cem = sum(cut_ededler)
+print("Cüt ədədlərin cəmi:", cem)
