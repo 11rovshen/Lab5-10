@@ -1,0 +1,21 @@
+import math
+
+# φ(x) funksiyası: x = 1 / arctg(x)
+def phi(x):
+    return 1 / math.atan(x)
+
+# Sadə iterasiya metodu
+def simple_iteration(x0, tol=1e-6, max_iter=100):
+    for i in range(max_iter):
+        x1 = phi(x0)
+        print(f"{i+1}-ci iterasiya: x = {x1}")
+        if abs(x1 - x0) < tol:
+            return x1  # Kök tapıldı
+        x0 = x1
+    return x1  # Maksimum iterasiya ilə nəticə
+
+# Başlanğıc yaxınlaşma (təxmini başlanğıc nöqtəsi)
+x0 = 1.2
+
+kok = simple_iteration(x0)
+print(f"\nTəqribi kök: {kok}")
